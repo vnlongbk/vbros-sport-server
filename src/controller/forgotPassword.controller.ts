@@ -8,7 +8,6 @@ import type {
   ResetPasswordRequestBodyType,
   TypedRequest
 } from '../types/types';
-import { sendResetEmail } from '../utils/sendEmail.util';
 
 /**
  * Sends Forgot password email
@@ -49,9 +48,6 @@ export const handleForgotPassword = async (
       userId: user.id
     }
   });
-
-  // Send an email with the reset link
-  sendResetEmail(email, resetToken);
 
   // Return a success message
   return res

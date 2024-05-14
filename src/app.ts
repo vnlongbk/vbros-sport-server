@@ -42,10 +42,14 @@ if (config.node_env === 'production') {
   app.use('/api/v1/auth', authLimiter);
 }
 
+app.use('/api/health_check', (_req, res) => {
+  res.json({
+    message: 'Server working'
+  });
+});
+
 app.use('/api/v1/auth', authRouter);
-
 app.use('/api/v1', passwordRouter);
-
 app.use('/api/v1', verifyEmailRouter);
 
 app.get('/secret', isAuth, (_req, res) => {
