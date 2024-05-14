@@ -67,3 +67,10 @@ model EmailVerificationToken {
   userId    String
   createdAt DateTime @default(now())
 }
+
+model BlogCategory {
+  id   String @id @default(cuid())
+  name String
+  slug String
+  createdAt DateTime @default(now())
+}
